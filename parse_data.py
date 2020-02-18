@@ -24,7 +24,7 @@ def parse_data():
                 
             elif '#*' in line:
                 reference={}
-                G.add_node(reference['index'], title=(line[3:].rstrip()))
+                #G.add_node(reference['index'], title=(line[3:].rstrip()))
                 reference['title'] = line[3:].rstrip()
             elif '#@' in line:
                 reference['author'] = line[3:].rstrip().rsplit(";")
@@ -33,7 +33,6 @@ def parse_data():
             elif '#c' in line:
                 reference['venue'] = line[3:].rstrip()
             elif '#%' in line:
-                citations +=1
                 G.add_edge(reference['index'], line[2:].rstrip())
             elif '#!' in line:
                 reference['abstract'] = line[3:].rstrip()
